@@ -1,12 +1,13 @@
 {
-  "name": "vue-handsontable-official",
+  "name": "jacksontable-vue",
   "private": true,
   "version": "3.1.0",
-  "description": "Best Data Grid for Vue with Spreadsheet Look and Feel.",
-  "author": "Handsoncode <hello@handsoncode.net> (https://handsoncode.net)",
-  "homepage": "https://handsontable.com",
+  "description": "Vue.js wrapper for Jacksontable, the OSS fork of Hansontable",
+  "author": "Matthew Rathbone <matthew@rathbonelabs.com> (https://rathbonelabs.com)",
+  "homepage": "https://github.com/rathbone-labs/jacksontable-vue",
   "keywords": [
     "handsontable",
+    "jacksontable",
     "component",
     "data",
     "table",
@@ -35,8 +36,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "del-cli": "^1.1.0",
-    "handsontable": "^6.0.0",
-    "handsontable-pro": "^6.0.0",
+    "jacksontable": "^6.0.0",
     "jest": "^23.6.0",
     "rollup": "^0.65.0",
     "rollup-plugin-babel": "^3.0.7",
@@ -53,17 +53,12 @@
     "vue-template-compiler": "^2.5.0"
   },
   "scripts": {
-    "build": "npm run delete-builds && npm run build-ce && npm run build-pro",
+    "build": "npm run delete-builds && npm run build-ce",
     "build-ce": "npm run build-ce:commonjs && npm run build-ce:es && npm run build-ce:umd && npm run build-ce:min",
-    "build-pro": "npm run build-pro:commonjs && npm run build-pro:es && npm run build-pro:umd && npm run build-pro:min",
     "build-ce:commonjs": "cross-env NODE_ENV=cjs HOT_TYPE=ce rollup -c",
     "build-ce:umd": "cross-env NODE_ENV=umd HOT_TYPE=ce rollup -c",
     "build-ce:es": "cross-env NODE_ENV=es HOT_TYPE=ce rollup -c",
     "build-ce:min": "cross-env NODE_ENV=min HOT_TYPE=ce rollup -c",
-    "build-pro:commonjs": "cross-env NODE_ENV=cjs HOT_TYPE=pro rollup -c",
-    "build-pro:umd": "cross-env NODE_ENV=umd HOT_TYPE=pro rollup -c",
-    "build-pro:es": "cross-env NODE_ENV=es HOT_TYPE=pro rollup -c",
-    "build-pro:min": "cross-env NODE_ENV=min HOT_TYPE=pro rollup -c",
     "delete-builds": "del-cli ./commonjs/ && del-cli ./dist/ && del-cli ./es/",
     "copy-builds-ce": "cpy './commonjs/ce/' ./build/ce/commonjs && cpy './es/ce/*.js' ./build/ce/es && cpy './dist/ce/' ./build/ce/dist",
     "copy-builds-pro": "cpy './commonjs/pro/' ./build/pro/commonjs && cpy './es/pro/*.js' ./build/pro/es && cpy './dist/pro/' ./build/pro/dist",
@@ -90,7 +85,7 @@
       "node"
     ],
     "moduleNameMapper": {
-      "hot-alias": "handsontable"
+      "hot-alias": "jacksontable"
     },
     "globals": {
       "ts-jest": {

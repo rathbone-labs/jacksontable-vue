@@ -1,4 +1,4 @@
-import Handsontable from 'handsontable';
+import Handsontable from 'jacksontable';
 import Vue from 'vue';
 import {ThisTypedComponentOptionsWithRecordProps} from 'vue/types/options';
 import {HotTableData, HotTableMethods, HotTableProps} from './types';
