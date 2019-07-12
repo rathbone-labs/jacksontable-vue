@@ -53,8 +53,8 @@
     "vue-template-compiler": "^2.5.0"
   },
   "scripts": {
-    "build": "npm run delete-builds && npm run build-ce",
-    "build-ce": "npm run build-ce:commonjs && npm run build-ce:es && npm run build-ce:umd && npm run build-ce:min",
+    "build": "yarn run delete-builds && yarn run build-ce",
+    "build-ce": "yarn run build-ce:commonjs && yarn run build-ce:es && yarn run build-ce:umd && yarn run build-ce:min",
     "build-ce:commonjs": "cross-env NODE_ENV=cjs HOT_TYPE=ce rollup -c",
     "build-ce:umd": "cross-env NODE_ENV=umd HOT_TYPE=ce rollup -c",
     "build-ce:es": "cross-env NODE_ENV=es HOT_TYPE=ce rollup -c",
@@ -62,13 +62,13 @@
     "delete-builds": "del-cli ./commonjs/ && del-cli ./dist/ && del-cli ./es/",
     "copy-builds-ce": "cpy './commonjs/ce/' ./build/ce/commonjs && cpy './es/ce/*.js' ./build/ce/es && cpy './dist/ce/' ./build/ce/dist",
     "copy-builds-pro": "cpy './commonjs/pro/' ./build/pro/commonjs && cpy './es/pro/*.js' ./build/pro/es && cpy './dist/pro/' ./build/pro/dist",
-    "copy-builds": "npm run copy-builds-ce && npm run copy-builds-pro",
+    "copy-builds": "yarn run copy-builds-ce && yarn run copy-builds-pro",
     "copy-scope-info": "cpy './src/ce/*' ./build/ce && cpy './src/pro/*' ./build/pro",
     "copy-dts": "cpy './es/ce/*.d.ts' ./build/ce && cpy './es/pro/*.d.ts' ./build/pro && del-cli './es/ce/*.d.ts' && del-cli './es/pro/*.d.ts'",
-    "copy-scopes": "npm run delete-scopes && npm run copy-builds && npm run copy-scope-info && npm run copy-dts",
+    "copy-scopes": "yarn run delete-scopes && yarn run copy-builds && yarn run copy-scope-info && yarn run copy-dts",
     "delete-scopes": "del-cli ./build/",
     "publish-scopes": "npm publish ./build/ce/ && npm publish ./build/pro/",
-    "publish-all": "npm run build && npm run copy-scopes && npm run publish-scopes && npm run delete-scopes",
+    "publish-all": "yarn run build && yarn run copy-scopes && yarn run publish-scopes && yarn run delete-scopes",
     "test": "jest"
   },
   "jest": {
@@ -93,5 +93,8 @@
         "babelConfig": true
       }
     }
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
   }
 }

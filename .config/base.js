@@ -9,7 +9,7 @@ const envHotType = process.env.HOT_TYPE;
 
 export const plugins = {
   replace: replace({
-    'hot-alias': envHotType === 'pro' ? 'handsontable-pro' : 'handsontable',
+    'hot-alias': 'jacksontable',
     'process.env.NODE_ENV': JSON.stringify('production')
   }),
   VuePlugin: VuePlugin({
