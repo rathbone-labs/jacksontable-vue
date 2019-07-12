@@ -53,21 +53,21 @@
     "vue-template-compiler": "^2.5.0"
   },
   "scripts": {
-    "build": "yarn run delete-builds && yarn run build-ce",
-    "build-ce": "yarn run build-ce:commonjs && yarn run build-ce:es && yarn run build-ce:umd && yarn run build-ce:min",
+    "build": "npm run delete-builds && npm run build-ce",
+    "build-ce": "npm run build-ce:commonjs && npm run build-ce:es && npm run build-ce:umd && npm run build-ce:min",
     "build-ce:commonjs": "cross-env NODE_ENV=cjs HOT_TYPE=ce rollup -c",
     "build-ce:umd": "cross-env NODE_ENV=umd HOT_TYPE=ce rollup -c",
     "build-ce:es": "cross-env NODE_ENV=es HOT_TYPE=ce rollup -c",
     "build-ce:min": "cross-env NODE_ENV=min HOT_TYPE=ce rollup -c",
     "delete-builds": "del-cli ./commonjs/ && del-cli ./dist/ && del-cli ./es/",
     "copy-builds-ce": "cpy './commonjs/ce/' ./build/ce/commonjs && cpy './es/ce/*.js' ./build/ce/es && cpy './dist/ce/' ./build/ce/dist",
-    "copy-builds": "yarn run copy-builds-ce",
+    "copy-builds": "npm run copy-builds-ce",
     "copy-scope-info": "cpy './src/ce/*' ./build/ce ",
     "copy-dts": "cpy './es/ce/*.d.ts' ./build/ce && del-cli './es/ce/*.d.ts'",
-    "copy-scopes": "yarn run delete-scopes && yarn run copy-builds && yarn run copy-scope-info && yarn run copy-dts",
+    "copy-scopes": "npm run delete-scopes && npm run copy-builds && npm run copy-scope-info && npm run copy-dts",
     "delete-scopes": "del-cli ./build/",
-    "publish-scopes": "yarn publish ./build/ce/",
-    "publish-all": "yarn run build && yarn run copy-scopes && yarn run publish-scopes && yarn run delete-scopes",
+    "publish-scopes": "npm publish ./build/ce/",
+    "publish-all": "npm run build && npm run copy-scopes && npm run publish-scopes && npm run delete-scopes",
     "test": "jest"
   },
   "jest": {

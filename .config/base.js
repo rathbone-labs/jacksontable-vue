@@ -42,10 +42,8 @@ export const baseConfig = {
     plugins.nodeResolve
   ],
   external: [
-    (envHotType === 'ce' ? 'handsontable' : 'handsontable-pro'),
-    'vue',
-    'handsontable',
-    'handsontable-pro'
+    'jacksontable',
+    'vue'
   ]
 };
 
